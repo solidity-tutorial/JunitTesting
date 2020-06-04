@@ -32,10 +32,15 @@ public class TodoBusinessImplMockitoInjectTest {
         //data
         List<String > todos = Arrays.asList("Learn Spring MVC","Learn Spring");
 
-        when( mockTodoService.retrieveTodos("Dummy")).thenReturn(todos);
+        when(mockTodoService.retrieveTodos("Dummy")).thenReturn(todos);
 
         List<String> filterTodoList = todoBusinessImpl.retrieveTodosRelatedToSpring("Dummy");
 
         assertEquals(2,filterTodoList.size());
+    }
+
+    @Test
+    public void tempTest(){
+
     }
 }

@@ -4,10 +4,12 @@ import org.junit.Test;
 
 import java.util.List;
 
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.anyInt;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class ListTest {
     @Test
@@ -41,4 +43,32 @@ public class ListTest {
         assertEquals("name",listMock.get(0));
         assertEquals("name",listMock.get(1));
     }
+    @Test
+    public void verifyMethod(){
+        List list = mock(List.class);
+        list.add("string");
+        verify(list).add("string");
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void letsMOckList_mixingUp(){
+        List listMock = mock(List.class);
+        when(listMock.subList(anyInt(),5)).thenThrow(new RuntimeException("something"));
+        listMock.get(0);
+    }
+
+    @Test
+    public void letsMockListSize_ReturnMultipleValuesBDD(){
+        //Given
+        List<String> listMock = mock(List.class);
+        //return multiple values
+        given(listMock.size()).willReturn(2);
+        //when      listMock.size()
+        int size = listMock.size();
+        //then
+        assertThat(size,is(2));
+
+    }
+
+
 }
