@@ -1,13 +1,12 @@
 package com.mockitotest;
 
+import com.junittesting.StringHelper;
 import com.mockito.api.ITodoService;
 import com.mockito.api.TodoBusinessImpl;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,8 +15,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.when;
 
-@RunWith(MockitoJUnitRunner.class)
-public class TodoBusinessImplMockitoInjectTest {
+public class StaticMethodTest {
 
     @Mock
     ITodoService mockTodoService;
@@ -25,12 +23,12 @@ public class TodoBusinessImplMockitoInjectTest {
 
     @InjectMocks
     TodoBusinessImpl todoBusinessImpl;
-   // TodoBusinessImpl todoBusinessImpl = new TodoBusinessImpl(mockTodoService);
+    // TodoBusinessImpl todoBusinessImpl = new TodoBusinessImpl(mockTodoService);
     //automatically inject
     // check ITodoService this type of property in TodoBusinessImpl /.../matching....
 
     @Test
-    public void test(){
+    public void testM(){
         //data
         List<String > todos = Arrays.asList("Learn Spring MVC","Learn Spring");
 
@@ -42,7 +40,7 @@ public class TodoBusinessImplMockitoInjectTest {
     }
 
     @Test
-    public void tempTest(){
-
+    public void test(){
+        assertEquals(1, ITodoService.profile());
     }
 }

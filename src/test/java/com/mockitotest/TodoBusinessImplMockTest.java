@@ -54,7 +54,6 @@ public class TodoBusinessImplMockTest {
         ITodoService mockTodoService = mock(ITodoService.class);
         given( mockTodoService.retrieveTodos("Dummy")).willReturn(todos);
         TodoBusinessImpl todoBusinessImpl = new TodoBusinessImpl(mockTodoService);
-
         //when
         List<String> filterTodoList = todoBusinessImpl.retrieveTodosRelatedToSpring("Dummy");
 

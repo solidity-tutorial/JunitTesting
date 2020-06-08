@@ -22,6 +22,9 @@ public class StringHelperTestParameterizedTest {
     }
     @Parameterized.Parameters
     public static Collection<String[]> testCondition(){
+        //INPUTS FOR TESTS
+        //TEST DATA
+        //PARAMETERS
         String[][] expectedOutputs = { {"AACD","CD"},
         {"ACD","CD"} };
 

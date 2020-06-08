@@ -18,3 +18,6 @@ public class SpyTest {
         assertEquals(5,arrayListMock.size());
     }
 }
+//Mock are the objects that store methods calls                         ---fake objects
+//Stubs are hold predefined data and uses it to give responses during tests.        --half real objects
+//parially mock objects real objects
